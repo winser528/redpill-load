@@ -8,14 +8,11 @@
   "files": {
     "zlinux": {
       "name": "zImage",
-      "sha256": "338ba514066da01d0c1f770418916b9b96f5355d88a7b55b398d2726db591fdb"
+      "sha256": "7311b04f7462847f529cf966c7b332097354692485c8157643d89441e2a81cd0"
     },
     "ramdisk": {
       "name": "rd.gz",
-      "sha256": "4b7a7a271a3b2158d9193a4f0e75c59590949ad7b4e26d546f46cc2ee8504d51"
-    },
-    "vmlinux": {
-      "sha256": "e5eea089bcb76dc6dce6476be43a4e64c8acd52ba8b9c095a7d165acf196c529"
+      "sha256": "d27320b536da0ac82d7959e0492180b3a25ef78a3997f65cc4ccddc426b921bd"
     }
   },
 
@@ -25,8 +22,8 @@
     ],
     "ramdisk": [
       "@@@COMMON@@@/ramdisk-001-disable-root-pwd.patch",
-      "@@@COMMON@@@/v7.0.1/ramdisk-002-init-script.patch",
-      "@@@COMMON@@@/v7.0.1/ramdisk-003-post-init-script.patch"
+      "@@@COMMON@@@/ramdisk-002-init-script-NEW-name.patch",
+      "@@@COMMON@@@/ramdisk-003-post-init-script-UPPER.patch"
     ]
   },
 
@@ -44,11 +41,10 @@
     "template": "@@@COMMON@@@/grub-template.conf",
     "base_cmdline": {
       "sn": "",
-      "vid": "0x46f4",
-      "pid": "0x0001",
+      "SataPortMap": "4",
+      "DiskIdxMap": "00",
       "mac1": "",
       "netif_num": 1,
-
       "syno_hw_version": "DS918+",
       "syno_hdd_powerup_seq": 1,
       "HddHotplug": 0,
@@ -63,28 +59,29 @@
     },
 
     "menu_entries": {
-      "Yet Another Jun`s Mod x RedPill DS918+ v7.0.1-42218 (USB, Verbose)": {
+      "RedPill DS918+ v7.0.1-42218 (USB, Verbose)": {
         "options": [
           "savedefault",
-          "set root=(hd0,2)",
+          "set root=(hd0,msdos1)",
           "echo Loading Linux...",
           "linux /bzImage @@@CMDLINE@@@",
           "echo Starting kernel with USB boot"
         ],
         "cmdline": {
+          "vid": "0x1908",
+          "pid": "0x0226",
           "earlyprintk": null,
           "loglevel": 15,
           "log_buf_len": "32M"
         }
       },
-      "Yet Another Jun`s Mod x RedPill DS918+ v7.0.1-42218 (SATA, Verbose)": {
+      "RedPill DS918+ v7.0.1-42218 (SATA, Verbose)": {
         "options": [
           "savedefault",
-          "set root=(hd0,2)",
+          "set root=(hd0,msdos1)",
           "echo Loading Linux...",
           "linux /bzImage @@@CMDLINE@@@",
-          "echo Starting kernel with SATA boot",
-          "echo WARNING: SATA boot support on this platform is experimental!"
+          "echo Starting kernel with SATA boot"
         ],
         "cmdline": {
           "earlyprintk": null,
@@ -104,8 +101,7 @@
     },
     "bootp1_copy": {
       "@@@PAT@@@/GRUB_VER": "GRUB_VER",
-      "@@@COMMON@@@/EFI/boot/SynoBootLoader.conf": "EFI/BOOT/",
-      "@@@COMMON@@@/EFI/boot/SynoBootLoader.efi": "EFI/BOOT/"
+      "@@@COMMON@@@/EFI": "EFI"
     },
     "bootp2_copy": {
       "@@@COMMON@@@/bzImage": "bzImage",
@@ -117,4 +113,3 @@
     }
   }
 }
-

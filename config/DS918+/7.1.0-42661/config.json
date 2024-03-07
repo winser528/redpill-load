@@ -12,9 +12,6 @@
     "ramdisk": {
       "name": "rd.gz",
       "sha256": "ef8c87b6e68226339e5623d048252f5be3089c0831e41298a4695f2bfa65f00e"
-    },
-    "vmlinux": {
-      "sha256": "41bc7364440a6e5da0e9740be743f0f9377de6957ca67d9287bf2672d030bcdb"
     }
   },
   "patches": {
@@ -23,8 +20,8 @@
     ],
     "ramdisk": [
       "@@@COMMON@@@/ramdisk-001-disable-root-pwd.patch",
-      "@@@COMMON@@@/v7.0.1/ramdisk-002-init-script.patch",
-      "@@@COMMON@@@/v7.1.0/ramdisk-003-post-init-script.patch",
+      "@@@COMMON@@@/ramdisk-002-init-script-NEW-name.patch",
+      "@@@COMMON@@@/ramdisk-003-post-init-script-UPPER.patch",
       "@@@COMMON@@@/ramdisk-004-network-hosts.patch",
       "@@@COMMON@@@/ramdisk-005-disable-disabled-ports.patch"
     ]
@@ -47,8 +44,8 @@
     "template": "@@@COMMON@@@/grub-template.conf",
     "base_cmdline": {
       "sn": "",
-      "vid": "0x46f4",
-      "pid": "0x0001",
+      "SataPortMap": "4",
+      "DiskIdxMap": "00",
       "mac1": "",
       "netif_num": 1,
       "syno_hw_version": "DS918+",
@@ -75,6 +72,8 @@
           "echo Starting kernel with USB boot"
         ],
         "cmdline": {
+          "vid": "0x1908",
+          "pid": "0x0226",
           "earlyprintk": null,
           "loglevel": 15,
           "log_buf_len": "32M"
@@ -88,8 +87,7 @@
           "linux /zImage @@@CMDLINE@@@",
           "echo Loading initramfs...",
           "initrd /rd.gz /custom.gz",
-          "echo Starting kernel with SATA boot",
-          "echo WARNING: SATA boot support on this platform is experimental!"
+          "echo Starting kernel with SATA boot"
         ],
         "cmdline": {
           "earlyprintk": null,
@@ -108,8 +106,7 @@
     },
     "bootp1_copy": {
       "@@@PAT@@@/GRUB_VER": "GRUB_VER",
-      "@@@COMMON@@@/EFI/boot/SynoBootLoader.conf": "EFI/BOOT/",
-      "@@@COMMON@@@/EFI/boot/SynoBootLoader.efi": "EFI/BOOT/"
+      "@@@COMMON@@@/EFI": "EFI"
     },
     "bootp2_copy": {
       "@@@PAT@@@/GRUB_VER": "GRUB_VER",

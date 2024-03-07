@@ -13,9 +13,6 @@
     "ramdisk": {
       "name": "rd.gz",
       "sha256": "66f8ccbc99e430b205c998a076ce7cbcfa2fbe4dd024cf4355a510b8d75783a0"
-    },
-    "vmlinux": {
-      "sha256": "981fb9934beb4de02b553463542dc1154c8c14bdc073b92749979805c45c78a1"
     }
   },
 
@@ -34,26 +31,25 @@
     "maxdisks": "16",
     "internalportcfg": "0xffff",
     "esataportcfg": "0x0",
-    "HddHotplug": "",
-    "support_led_brightness_adjustment": "",
-    "support_leds_lp3943": "",
     "buzzeroffen": "0xffff",
-    "rss_server": "http://example.com/null.xml",
-    "rss_server_ssl": "https://example.com/null.xml",
+    "rss_server": "https://raw.githubusercontent.com/pocopico/redpill-load/develop/rss.xml",
+    "rss_server_ssl": "https://raw.githubusercontent.com/pocopico/redpill-load/develop/rss.xml",
     "small_info_path": "https://example.com/null",
     "updateurl": "http://example.com/",
-    "myds_region_api_base_url": "https://example.com"
+    "myds_region_api_base_url": "https://example.com",
+    "rss_server_v2": "https://raw.githubusercontent.com/pocopico/redpill-load/develop/rss.json",
+    "maxlanport": "8",
+    "netif_seq": "0 1 2 3 4 5 6 7"
   },
 
   "grub": {
     "template": "@@@COMMON@@@/grub-template.conf",
     "base_cmdline": {
       "sn": "",
-      "vid": "0x46f4",
-      "pid": "0x0001",
+      "SataPortMap": "4",
+      "DiskIdxMap": "00",
       "mac1": "",
       "netif_num": 1,
-
       "syno_hw_version": "DS918+",
       "syno_hdd_powerup_seq": 1,
       "HddHotplug": 0,
@@ -73,12 +69,12 @@
           "savedefault",
           "set root=(hd0,msdos1)",
           "echo Loading Linux...",
-          "linux /zImage @@@CMDLINE@@@",
-          "echo Loading initramfs...",
-          "initrd /rd.gz /custom.gz",
+          "linux /bzImage @@@CMDLINE@@@",
           "echo Starting kernel with USB boot"
         ],
         "cmdline": {
+          "vid": "0x1908",
+          "pid": "0x0226",
           "earlyprintk": null,
           "loglevel": 15,
           "log_buf_len": "32M"
@@ -89,11 +85,8 @@
           "savedefault",
           "set root=(hd0,msdos1)",
           "echo Loading Linux...",
-          "linux /zImage @@@CMDLINE@@@",
-          "echo Loading initramfs...",
-          "initrd /rd.gz /custom.gz",
-          "echo Starting kernel with SATA boot",
-          "echo WARNING: SATA boot support on this platform is experimental!"
+          "linux /bzImage @@@CMDLINE@@@",
+          "echo Starting kernel with SATA boot"
         ],
         "cmdline": {
           "earlyprintk": null,
@@ -116,6 +109,7 @@
       "@@@COMMON@@@/EFI": "EFI"
     },
     "bootp2_copy": {
+      "@@@COMMON@@@/bzImage": "bzImage",
       "@@@PAT@@@/GRUB_VER": "GRUB_VER",
       "@@@COMMON@@@/EFI": "EFI",
       "@@@PAT@@@/grub_cksum.syno": "grub_cksum.syno",
@@ -124,4 +118,3 @@
     }
   }
 }
-

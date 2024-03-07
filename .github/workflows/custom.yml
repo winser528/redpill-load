@@ -30,7 +30,7 @@ on:
       map:
         description: '请输入控制器盘数(SataPortMap)和盘序(DiskIdxMap)两个字段, 并以","间隔. eg: 0, 10'
         required: false
-        default: ''
+        default: '4, 00'
         type: string
 
       dtb:
@@ -600,12 +600,12 @@ jobs:
         run: |
           if [ "${{ env.issues }}" == "true" ]; then
             echo "### ${{ env.issueauth }}'s Redpill Custom" >> $GITHUB_STEP_SUMMARY
-            echo "� issues: [#${{ env.issuenumber }}]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/issues/${{ env.issuenumber }})" >> $GITHUB_STEP_SUMMARY
+            echo "👉 issues: [#${{ env.issuenumber }}]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/issues/${{ env.issuenumber }})" >> $GITHUB_STEP_SUMMARY
           else
             echo "### $(echo "$GITHUB_REPOSITORY" | awk -F / '{print $1}')'s Redpill Custom" >> $GITHUB_STEP_SUMMARY
-            echo "� "platform": "${{ env.platform }}"  " >> $GITHUB_STEP_SUMMARY
-            echo "� "version": "${{ env.version }}", "jun": "${{ env.jun }}"  " >> $GITHUB_STEP_SUMMARY
-            echo "� "ext": "${{ env.ext }}"  " >> $GITHUB_STEP_SUMMARY
+            echo "👉 "platform": "${{ env.platform }}"  " >> $GITHUB_STEP_SUMMARY
+            echo "👉 "version": "${{ env.version }}", "jun": "${{ env.jun }}"  " >> $GITHUB_STEP_SUMMARY
+            echo "👉 "ext": "${{ env.ext }}"  " >> $GITHUB_STEP_SUMMARY
           fi
 
           echo "release_tag=$(date +'%Y.%m.%d-%H%M')" >> $GITHUB_OUTPUT
@@ -628,7 +628,7 @@ jobs:
           else
             echo "### $(echo "$GITHUB_REPOSITORY" | awk -F / '{print $1}')'s Redpill Custom" >> $GITHUB_STEP_SUMMARY
           fi
-          echo "� � � � � ☹️ � � � � � �  " >> $GITHUB_STEP_SUMMARY
+          echo "😞 😔 😟 😕 🙁 ☹️ 😣 😖 😫 😩 🥺 😢  " >> $GITHUB_STEP_SUMMARY
           echo "您自定义 Redpill 所填写的信息无法解析, 请参考模板并请重新发起定制。  " >> $GITHUB_STEP_SUMMARY
           echo "error info: ${{ env.errinfo }}  " >> $GITHUB_STEP_SUMMARY
 
