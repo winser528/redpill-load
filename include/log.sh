@@ -12,7 +12,7 @@ readonly ASCII_BG_RED="\e[1;41m"
 readonly ASCII_BG_GREEN="\e[1;42m"
 
 # shellcheck disable=SC2046
-if [ $(tput colors || exit 1) -gt 0 ]; then
+if [[ $(tput colors || exit 1) -gt 0 ]]; then
     readonly ASCII_HAS_COLORS=1
 else
     readonly ASCII_HAS_COLORS=0
