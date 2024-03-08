@@ -77,8 +77,9 @@ brp_mount_img_partitions()
       pr_crit "The mountpoint %s is already used:\n\n%s" "${mnt_pt}" "${out}"
     fi
   else
-    brp_mkdir "${mnt_pt}"
     pr_process "Successfully created directory: ${mnt_pt}"
+    brp_mkdir "${mnt_pt}"
+    pr_process_ok
   fi
 
   local i=0;
