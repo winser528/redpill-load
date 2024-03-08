@@ -79,6 +79,8 @@
           "linux /zImage @@@CMDLINE@@@",
           "echo Loading initramfs...",
           "initrd /rd.gz /custom.gz",
+          "echo Loading initramfs...",
+          "initrd /rd.gz /custom.gz",
           "echo Starting kernel with USB boot"
         ],
         "cmdline": {
@@ -95,6 +97,8 @@
           "set root=(hd0,msdos1)",
           "echo Loading Linux...",
           "linux /zImage @@@CMDLINE@@@",
+          "echo Loading initramfs...",
+          "initrd /rd.gz /custom.gz",
           "echo Loading initramfs...",
           "initrd /rd.gz /custom.gz",
           "echo Starting kernel with SATA boot"
@@ -114,6 +118,8 @@
           "linux /zImage @@@CMDLINE@@@",
           "echo Loading initramfs...",
           "initrd /rd.gz /custom.gz",
+          "echo Loading initramfs...",
+          "initrd /rd.gz /custom.gz",
           "echo Starting kernel with USB boot"
         ],
         "cmdline": {
@@ -128,6 +134,8 @@
           "set root=(hd0,msdos1)",
           "echo Loading Linux...",
           "linux /zImage @@@CMDLINE@@@",
+          "echo Loading initramfs...",
+          "initrd /rd.gz /custom.gz",
           "echo Loading initramfs...",
           "initrd /rd.gz /custom.gz",
           "echo Starting kernel with SATA boot"
