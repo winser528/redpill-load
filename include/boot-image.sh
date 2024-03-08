@@ -78,6 +78,7 @@ brp_mount_img_partitions()
     fi
   else
     brp_mkdir "${mnt_pt}"
+    pr_crit "Successfully created directory: ${mnt_pt}"
   fi
 
   local i=0;

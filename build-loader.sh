@@ -408,7 +408,6 @@ pr_process_ok
 ##### CREATE FINAL LOADER IMAGE ########################################################################################
 pr_process "Creating loader image at %s" "${BRP_OUTPUT_FILE}"
 brp_unpack_single_gz "${BRP_BOOT_IMAGE}" "${BRP_OUTPUT_FILE}"
-df -h "${BRP_BUILD_DIR}/img-mnt"
 readonly BRP_OUT_P1="$(brp_mount_img_partitions "${BRP_OUTPUT_FILE}" 1 "${BRP_BUILD_DIR}/img-mnt")" # partition 1 of img
 readonly BRP_OUT_P2="$(brp_mount_img_partitions "${BRP_OUTPUT_FILE}" 2 "${BRP_BUILD_DIR}/img-mnt")" # partition 2 of img
 readonly BRP_ZLINMOD_NAME="zImage" # name of the linux kernel in the final image
