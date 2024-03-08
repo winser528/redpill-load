@@ -113,7 +113,6 @@
       "@@@COMMON@@@/EFI": "EFI"
     },
     "bootp2_copy": {
-      "@@@COMMON@@@/bzImage": "bzImage",
       "@@@PAT@@@/GRUB_VER": "GRUB_VER",
       "@@@COMMON@@@/EFI": "EFI",
       "@@@PAT@@@/grub_cksum.syno": "grub_cksum.syno",

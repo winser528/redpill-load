@@ -58,7 +58,7 @@
           "savedefault",
           "set root=(hd0,msdos1)",
           "echo Loading Linux...",
-          "linux /bzImage @@@CMDLINE@@@",
+          "linux /zImage @@@CMDLINE@@@",
           "echo Starting kernel with USB boot"
         ],
         "cmdline": {
@@ -74,7 +74,7 @@
           "savedefault",
           "set root=(hd0,msdos1)",
           "echo Loading Linux...",
-          "linux /bzImage @@@CMDLINE@@@",
+          "linux /zImage @@@CMDLINE@@@",
           "echo Starting kernel with SATA boot"
         ],
         "cmdline": {
@@ -98,7 +98,6 @@
       "@@@COMMON@@@/EFI": "EFI"
     },
     "bootp2_copy": {
-      "@@@COMMON@@@/bzImage": "bzImage",
       "@@@PAT@@@/GRUB_VER": "GRUB_VER",
       "@@@COMMON@@@/EFI": "EFI",
       "@@@PAT@@@/grub_cksum.syno": "grub_cksum.syno",
