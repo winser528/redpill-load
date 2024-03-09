@@ -63,11 +63,9 @@
       "RedPill DS3615xs v7.1.0-42661 (USB, Verbose)": {
         "options": [
           "savedefault",
-          "set root=(hd0,msdos1)",
+          "set root=(hd0,msdos2)",
           "echo Loading Linux...",
           "linux /zImage @@@CMDLINE@@@",
-          "echo Loading initramfs...",
-          "initrd /rd.gz /custom.gz",
           "echo Loading initramfs...",
           "initrd /rd.gz /custom.gz",
           "echo Starting kernel with USB boot"
@@ -83,11 +81,9 @@
       "RedPill DS3615xs v7.1.0-42661 (SATA, Verbose)": {
         "options": [
           "savedefault",
-          "set root=(hd0,msdos1)",
+          "set root=(hd0,msdos2)",
           "echo Loading Linux...",
           "linux /zImage @@@CMDLINE@@@",
-          "echo Loading initramfs...",
-          "initrd /rd.gz /custom.gz",
           "echo Loading initramfs...",
           "initrd /rd.gz /custom.gz",
           "echo Starting kernel with SATA boot"

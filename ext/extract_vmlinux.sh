@@ -35,22 +35,21 @@ try_decompress()
 		pos=${pos%%:*}
 		tail -c+$pos "$img" | $3 > $tmp 2> /dev/null
 		check_vmlinux $tmp
-                if [ $? -eq 0 ]; then
-                        size=$(tail -c+$pos "$img" | head -c$(($pos-1-4)) | tail -c4 | od -i --endian=little | head -n1 | awk '{ print $2 }')
-                        echo "Found valid magic - decompressed using $3 (tail -c+$pos \"$img\" | $3)" >&2
-                        echo "Header at: head -c$(($pos-1))" >&2
-                        echo "Compressed at: tail -c+$pos" >&2
-                        echo "Reported size: $size bytes" >&2
-                        exit 0
-                fi
+    if [ $? -eq 0 ]; then
+      size=$(tail -c+$pos "$img" | head -c$(($pos-1-4)) | tail -c4 | od -i --endian=little | head -n1 | awk '{ print $2 }')
+      echo "Found valid magic - decompressed using $3 (tail -c+$pos \"$img\" | $3)" >&2
+      echo "Header at: head -c$(($pos-1))" >&2
+      echo "Compressed at: tail -c+$pos" >&2
+      echo "Reported size: $size bytes" >&2
+      exit 0
+    fi
 	done
 }
 
 # Check invocation:
 me=${0##*/}
 img=$1
-if	[ $# -ne 1 -o ! -s "$img" ]
-then
+if	[ $# -ne 1 -o ! -s "$img" ]; then
 	echo "Usage: $me <kernel-image> [> <output-image>]" >&2
 	exit 2
 fi
