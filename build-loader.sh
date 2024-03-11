@@ -180,8 +180,7 @@ if [[ "${BRP_DEV_DISABLE_EXTS}" -ne 1 ]]; then
     pr_dbg "Updating & downloading selected extensions (%s) for %s" "${RPT_BUILD_EXTS}" "${BRP_REL_OS_ID}"
     ( ./ext-manager.sh _update_platform_exts "${BRP_REL_OS_ID}" "${RPT_BUILD_EXTS}")
     if [[ $? -ne 0 ]]; then
-      pr_crit "Failed to update extensions selected (%s) for %s platform - see errors above" \
-              "${RPT_BUILD_EXTS}" "${BRP_REL_OS_ID}"
+      pr_crit "Failed to update extensions selected (%s) for %s platform - see errors above" "${RPT_BUILD_EXTS}" "${BRP_REL_OS_ID}"
     fi
   fi
   pr_process_ok
@@ -297,13 +296,11 @@ if [ ! -f "${BRP_RD_REPACK}" ]; then # do we even need to unpack-modify-repack t
 
   # Next we need to ensure the same patches are applied to post-boot environment too (dynamically)
   pr_process "Adding OS config patching"
-  BRP_TEMP_ARRAY=(); brp_generate_set_confs_calls \
-                     "${BRP_REL_CONFIG_JSON}" 'synoinfo' BRP_TEMP_ARRAY "${BRP_OS_CONFS[@]}" # platform configs
+  BRP_TEMP_ARRAY=(); brp_generate_set_confs_calls "${BRP_REL_CONFIG_JSON}" 'synoinfo' BRP_TEMP_ARRAY "${BRP_OS_CONFS[@]}" # platform configs
   BRP_OS_CONFS_LINES="$(brp_array_to_text $'\n' "${BRP_TEMP_ARRAY[@]}")"
 
   if [[ ${BRP_USER_HAS_SYNOINFO} -eq 1 ]]; then
-    BRP_TEMP_ARRAY=(); brp_generate_set_confs_calls \
-                       "${BRP_USER_CFG}" 'synoinfo' BRP_TEMP_ARRAY "${BRP_OS_CONFS[@]}" # user configs
+    BRP_TEMP_ARRAY=(); brp_generate_set_confs_calls "${BRP_USER_CFG}" 'synoinfo' BRP_TEMP_ARRAY "${BRP_OS_CONFS[@]}" # user configs
     BRP_OS_CONFS_LINES+=$'\n'"$(brp_array_to_text $'\n' "${BRP_TEMP_ARRAY[0]+"${BRP_TEMP_ARRAY[@]}"}")"
   fi
   brp_replace_token_with_script "${BRP_POST_INIT_FILE}" '@@@CONFIG-MANIPULATORS-TOOLS@@@' "$PWD/include/config-manipulators.sh"
