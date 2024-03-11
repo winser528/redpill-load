@@ -51,7 +51,7 @@
       "withefi": null,
       "elevator": "elevator",
       "syno_port_thaw": 1,
-      "syno_hdd_detect": 0,
+      "quiet": null,
       "root": "/dev/md0",
       "earlycon": "uart8250,io,0x3f8,115200n8"
     },

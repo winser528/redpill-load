@@ -41,9 +41,6 @@
     "template": "@@@COMMON@@@/grub-template.conf",
     "base_cmdline": {
       "sn": "",
-      "SasIdxMap": 0,
-      "SataPortMap": "00",
-      "DiskIdxMap": "4",
       "mac1": "",
       "netif_num": 1,
       "syno_hw_version": "DS918+",
@@ -54,9 +51,15 @@
       "withefi": null,
       "elevator": "elevator",
       "syno_port_thaw": 1,
-      "syno_hdd_detect": 0,
+      "quiet": null,
       "root": "/dev/md0",
-      "earlycon": "uart8250,io,0x3f8,115200n8"
+      "earlycon": "uart8250,io,0x3f8,115200n8",
+      "earlyprintk": null,
+      "loglevel": 15,
+      "log_buf_len": "32M",
+      "SasIdxMap": 0,
+      "SataPortMap": "1000",
+      "DiskIdxMap": "24"
     },
 
     "menu_entries": {
@@ -72,10 +75,7 @@
         ],
         "cmdline": {
           "vid": "0x1908",
-          "pid": "0x0226",
-          "earlyprintk": null,
-          "loglevel": 15,
-          "log_buf_len": "32M"
+          "pid": "0x0226"
         }
       },
       "RedPill DS918+ v6.2.4-25556 (SATA, Verbose)": {
@@ -89,10 +89,7 @@
           "echo Starting kernel with SATA boot"
         ],
         "cmdline": {
-          "earlyprintk": null,
-          "loglevel": 15,
-          "synoboot_satadom": 2,
-          "log_buf_len": "32M"
+          "synoboot_satadom": 2
         }
       }
     }
