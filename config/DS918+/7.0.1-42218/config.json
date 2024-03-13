@@ -41,8 +41,6 @@
     "template": "@@@COMMON@@@/grub-template.conf",
     "base_cmdline": {
       "sn": "",
-      "SataPortMap": "4",
-      "DiskIdxMap": "00",
       "mac1": "",
       "netif_num": 1,
       "syno_hw_version": "DS918+",
@@ -70,8 +68,6 @@
           "echo Starting kernel with USB boot"
         ],
         "cmdline": {
-          "vid": "0x1908",
-          "pid": "0x0226",
           "earlyprintk": null,
           "loglevel": 15,
           "log_buf_len": "32M"

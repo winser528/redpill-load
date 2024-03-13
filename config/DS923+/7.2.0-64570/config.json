@@ -42,8 +42,7 @@
     "template": "@@@COMMON@@@/grub-template.conf",
     "base_cmdline": {
       "sn": "",
-      "SataPortMap": "4",
-      "DiskIdxMap": "00",
+      "SasIdxMap": 0,
       "mac1": "",
       "netif_num": 1,
       "syno_hw_version": "DS923+",

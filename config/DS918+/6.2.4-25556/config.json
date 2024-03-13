@@ -4,7 +4,6 @@
     "pat_url": "https://global.download.synology.com/download/DSM/release/6.2.4/25556/DSM_DS918%2B_25556.pat",
     "sha256": "24336ef3aa4ab2c484602c6fe9b3b05edf68b7915df8db07b96a7bf21eff5fda"
   },
-
   "files": {
     "zlinux": {
       "name": "zImage",
@@ -15,7 +14,6 @@
       "sha256": "66f8ccbc99e430b205c998a076ce7cbcfa2fbe4dd024cf4355a510b8d75783a0"
     }
   },
-
   "patches": {
     "zlinux": [
       "zImage-001-918p-25556-ramdisk-and-flag-NOP.bsp"
@@ -26,7 +24,6 @@
       "@@@COMMON@@@/ramdisk-003-post-init-script-LOWER.patch"
     ]
   },
-
   "synoinfo": {
     "maxdisks": "16",
     "internalportcfg": "0xffff",
@@ -36,32 +33,28 @@
     "maxlanport": "8",
     "netif_seq": "0 1 2 3 4 5 6 7"
   },
-
   "grub": {
     "template": "@@@COMMON@@@/grub-template.conf",
     "base_cmdline": {
       "sn": "",
+      "SasIdxMap": 0,
       "mac1": "",
       "netif_num": 1,
       "syno_hw_version": "DS918+",
       "syno_hdd_powerup_seq": 1,
+      "syno_port_thaw": 1,
       "vender_format_version": 2,
       "console": "ttyS0,115200n8",
       "HddHotplug": 0,
-      "withefi": null,
       "elevator": "elevator",
-      "syno_port_thaw": 1,
-      "quiet": null,
       "root": "/dev/md0",
       "earlycon": "uart8250,io,0x3f8,115200n8",
       "earlyprintk": null,
+      "withefi": null,
+      "quiet": null,
       "loglevel": 15,
-      "log_buf_len": "32M",
-      "SasIdxMap": 0,
-      "SataPortMap": "1",
-      "DiskIdxMap": "00"
+      "log_buf_len": "32M"
     },
-
     "menu_entries": {
       "RedPill DS918+ v6.2.4-25556 (USB, Verbose)": {
         "options": [
@@ -73,10 +66,7 @@
           "initrd /rd.gz /custom.gz",
           "echo Starting kernel with USB boot"
         ],
-        "cmdline": {
-          "vid": "0x1908",
-          "pid": "0x0226"
-        }
+        "cmdline": {}
       },
       "RedPill DS918+ v6.2.4-25556 (SATA, Verbose)": {
         "options": [
@@ -92,7 +82,6 @@
       }
     }
   },
-
   "extra": {
     "compress_rd": false,
     "ramdisk_copy": {

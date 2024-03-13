@@ -30,7 +30,7 @@ on:
       map:
         description: '请输入控制器盘数(SataPortMap)和盘序(DiskIdxMap)两个字段, 并以","间隔. eg: 0, 10'
         required: false
-        default: ''
+        default: '1, 00'
         type: string
 
       dtb:
@@ -54,7 +54,7 @@ on:
       usb:
         description: '请输入设备识别码(pid)和供应商ID(vid)两个字段, 并以","间隔. eg: 0xa4a5, 0x0525'
         required: false
-        default: '0x0001, 0x46f4'
+        default: '0x0001, 0x0226'
         type: string
 
       ext:
