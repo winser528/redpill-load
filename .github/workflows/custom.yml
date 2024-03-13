@@ -30,7 +30,7 @@ on:
       map:
         description: '请输入控制器盘数(SataPortMap)和盘序(DiskIdxMap)两个字段, 并以","间隔. eg: 0, 10'
         required: false
-        default: '4, 00'
+        default: ''
         type: string
 
       dtb:
