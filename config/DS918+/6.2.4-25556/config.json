@@ -45,9 +45,9 @@
       "netif_num": 1,
       "syno_hw_version": "DS918+",
       "syno_hdd_powerup_seq": 1,
-      "HddHotplug": 0,
       "vender_format_version": 2,
       "console": "ttyS0,115200n8",
+      "HddHotplug": 0,
       "withefi": null,
       "elevator": "elevator",
       "syno_port_thaw": 1,
@@ -58,8 +58,8 @@
       "loglevel": 15,
       "log_buf_len": "32M",
       "SasIdxMap": 0,
-      "SataPortMap": "1000",
-      "DiskIdxMap": "24"
+      "SataPortMap": "1",
+      "DiskIdxMap": "00"
     },
 
     "menu_entries": {
@@ -83,9 +83,7 @@
           "savedefault",
           "set root=(hd0,msdos2)",
           "echo Loading Linux...",
-          "linux /zImage @@@CMDLINE@@@",
-          "echo Loading initramfs...",
-          "initrd /rd.gz /custom.gz",
+          "linux /bzImage @@@CMDLINE@@@",
           "echo Starting kernel with SATA boot"
         ],
         "cmdline": {
